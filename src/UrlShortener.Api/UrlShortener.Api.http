@@ -14,7 +14,7 @@ Content-Type: application/json
 
 {
   "url": "https://docs.microsoft.com/en-us/dotnet/core/introduction",
-  "alias": "ms-docs"
+  "alias": "ms-doc"
 }
 
 ### Create short URL with another alias

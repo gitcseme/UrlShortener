@@ -1,0 +1,68 @@
+@baseUrl = http://localhost:5090
+
+### Create short URL (auto-generated code)
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://example.com/very/long/url/that/needs/shortening"
+}
+
+### Create short URL with custom alias
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://docs.microsoft.com/en-us/dotnet/core/introduction",
+  "alias": "ms-docs"
+}
+
+### Create short URL with another alias
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://github.com/dotnet/aspnetcore",
+  "alias": "gh-aspnet"
+}
+
+### Follow redirect (replace {shortCode} with an actual code)
+GET {{baseUrl}}/ms-docs
+
+### Get stats for a short URL
+GET {{baseUrl}}/api/ms-docs/stats
+
+### Error: invalid URL
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "not-a-valid-url"
+}
+
+### Error: alias already taken
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://example.com/something-else",
+  "alias": "ms-docs"
+}
+
+### Error: alias too short
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://example.com/test",
+  "alias": "ab"
+}
+
+### Error: alias with invalid characters
+POST {{baseUrl}}/shorten
+Content-Type: application/json
+
+{
+  "url": "https://example.com/test",
+  "alias": "hello world!"
+}

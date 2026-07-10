@@ -27,10 +27,10 @@ Content-Type: application/json
 }
 
 ### Follow redirect (replace {shortCode} with an actual code)
-GET {{baseUrl}}/ms-docs
+GET {{baseUrl}}/ms-doc
 
 ### Get stats for a short URL
-GET {{baseUrl}}/api/ms-docs/stats
+GET {{baseUrl}}/api/ms-doc/stats
 
 ### Error: invalid URL
 POST {{baseUrl}}/shorten
@@ -46,7 +46,7 @@ Content-Type: application/json
 
 {
   "url": "https://example.com/something-else",
-  "alias": "ms-docs"
+  "alias": "ms-doc"
 }
 
 ### Error: alias too short

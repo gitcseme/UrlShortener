@@ -1,10 +1,9 @@
 using Microsoft.EntityFrameworkCore;
 using UrlShortener.Api.Data;
+using UrlShortener.Api.Exceptions;
 using UrlShortener.Api.Models;
 
 namespace UrlShortener.Api.Services;
-
-public class AliasAlreadyExistsException(string alias) : Exception($"Alias '{alias}' is already taken.");
 
 public class UrlShorteningService : IUrlShorteningService
 {

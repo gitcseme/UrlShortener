@@ -2,8 +2,8 @@
 
 ## Improvement priority order
 - [ ] Immediate 
-  - [ ] FluentValidation, 
-  - [ ] Global exception handler, 
+  - [x] FluentValidation, 
+  - [x] Global exception handler, 
   - [ ] Structured logging 
   - [ ] Rate limiting
 

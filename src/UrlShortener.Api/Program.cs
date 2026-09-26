@@ -8,7 +8,7 @@ using UrlShortener.Api.Validators;
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddDbContext<AppDbContext>(opts =>
-    opts.UseNpgsql(builder.Configuration.GetConnectionString("Postgres")));
+    opts.UseSqlServer(builder.Configuration.GetConnectionString("SqlServer")));
 
 builder.Services.AddScoped<IUrlShorteningService, UrlShorteningService>();
 builder.Services.AddValidatorsFromAssemblyContaining<CreateUrlRequestValidator>();

@@ -1,26 +1,14 @@
 # UrlShortener
 
-## Improvement priority order
-- [ ] Immediate 
-  - [x] FluentValidation, 
-  - [x] Global exception handler, 
-  - [ ] Structured logging 
-  - [ ] Rate limiting
+A simple URL shortener service. Database generated Id is converted to base 62, using as short-code.
 
-- [ ] Short-term 
-  - [ ] Redis cache, 
-  - [ ] Dockerfile + compose with API
-  - [ ] health checks 
-  - [ ] unit + integration tests
+## Endpoints
+- `POST /shorten` — shorten a URL (optional custom alias)
+- `GET /{shortCode}` — redirect to the original URL
+- `GET /api/{shortCode}/stats` — get click stats for a short code
 
-- [ ] Medium-term 
-  - [ ] OpenTelemetry
-  - [ ] batch click counting, 
-  - [ ] SSRF protection, 
-  - [ ] Polly retries
-
-- [ ] Future 
-  - [ ] Idempotency keys
-  - [ ] expiration background job
-  - [ ] load testing
-  - [ ] Grafana dashboards
+## Run locally
+```
+docker-compose up -d
+dotnet run --project src/UrlShortener.Api
+```

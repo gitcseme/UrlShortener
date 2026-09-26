@@ -14,7 +14,6 @@ public class AppDbContext : DbContext
         modelBuilder.Entity<ShortenedUrl>(entity =>
         {
             entity.HasKey(e => e.Id);
-            entity.Property(e => e.Id).UseIdentityAlwaysColumn();
             entity.Property(e => e.LongUrl).IsRequired();
             entity.Property(e => e.ShortCode).IsRequired().HasMaxLength(10);
             entity.HasIndex(e => e.ShortCode).IsUnique();

@@ -1,5 +1,6 @@
 using FluentValidation;
 using Microsoft.EntityFrameworkCore;
+using Scalar.AspNetCore;
 using UrlShortener.Api.Data;
 using UrlShortener.Api.Exceptions;
 using UrlShortener.Api.Services;
@@ -20,6 +21,13 @@ builder.Services.AddOpenApi();
 var app = builder.Build();
 
 app.MapOpenApi();
+
+app.MapScalarApiReference(options =>
+{
+    options?
+        .WithTitle("My .NET 10 API")
+        .WithTheme(ScalarTheme.Mars);
+});
 
 app.UseExceptionHandler();
 app.UseHttpsRedirection();

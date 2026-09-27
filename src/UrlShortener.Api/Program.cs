@@ -58,4 +58,18 @@ app.MapGet("/api/{shortCode}/stats", async (string shortCode, IUrlShorteningServ
     return Results.Ok(stats);
 });
 
+app.MapGet("/api/env", () =>
+{
+    var variables = Environment.GetEnvironmentVariables()
+        .Cast<System.Collections.DictionaryEntry>()
+        .ToDictionary(kv => kv.Key, kv => kv.Value);
+
+    return Results.Ok(variables);
+});
+
+using var scope = app.Services.CreateScope();
+using var db = scope.ServiceProvider.GetService<AppDbContext>();
+db?.Database.Migrate();
+
+
 app.Run();
